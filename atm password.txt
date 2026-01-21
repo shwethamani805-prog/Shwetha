@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int c=123456,i=3,e,b=10000;
+    while(i>0)
+    {
+        printf("Enter ATM Password:\n");
+        scanf("%d",&e);
+        if(e==c)
+        {
+            printf("Access successfully.ATM OPENED,\n");
+            printf("Enter your amount:\n");
+            scanf("%d",&b);
+            if(b<10000)
+            {
+                printf("Cash withdraw successfully.\n");
+                
+            }
+            else if(b=10000)
+            {
+                printf("Cash withdraw successfull but fine.\n");
+            }
+            else
+            {
+                printf("Cash withdraw failed.It's above the amount.\n");
+            }
+            break;
+        }
+        else{
+            i--;
+            printf("Incorrect Password.Time left:%d.\n",i);
+        }
+    }
+    if(i==0){
+        printf("Try next time.\n");
+    }
+
+    return 0;
+}
