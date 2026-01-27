@@ -10,9 +10,10 @@ int main(){
     printf("My name is %s \n", point -> name);
     printf("My name's memory address is %p \n", point -> name);
     
-    printf("My reg no is \n", point -> regno);
+    printf("My reg no is %d\n", point -> regno);
     printf("My regno's memory address is %p \n", point -> regno);
     
     return 0;
     
+
 }
