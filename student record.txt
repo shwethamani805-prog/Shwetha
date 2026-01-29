@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Nested structure for student details
+struct StudentDetails {
+    char name[50];
+    char dept[50];
+};
+
+// Node structure
+struct Node {
+    int roll;
+    struct StudentDetails details;
+    struct Node *next;
+};
+
+// Function to create a new node
+struct Node* createNode(int roll, char name[], char dept[]) {
+    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->roll = roll;
+    strcpy(newNode->details.name, name);
+    strcpy(newNode->details.dept, dept);
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to add a node at the end of the list
+void insertEnd(struct Node **head, int roll, char name[], char dept[]) {
+    struct Node *newNode = createNode(roll, name, dept);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node *temp = *head;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = newNode;
+}
+
+// Function to display the linked list
+void displayList(struct Node *head) {
+    struct Node *temp = head;
+    while (temp != NULL) {
+        printf("%d %s %s -> ", temp->roll, temp->details.name, temp->details.dept);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node *head = NULL;
+
+    // Test Case Input
+    insertEnd(&head, 1, "Arun", "CSE");
+    insertEnd(&head, 2, "Meena", "IT");
+
+    // Display Output
+    displayList(head);
+
+    return 0;
+}
