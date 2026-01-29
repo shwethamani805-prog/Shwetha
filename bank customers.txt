@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Nested structure for contact details
+
 struct Contact {
     long phone;
 };
 
-// Node structure for customer
+
 struct Customer {
     int accNo;
     struct Contact contact;
@@ -14,7 +14,7 @@ struct Customer {
 };
 
 int main() {
-    // Create customers manually
+    
     struct Customer *c1, *c2;
 
     c1 = (struct Customer *)malloc(sizeof(struct Customer));
@@ -28,7 +28,7 @@ int main() {
     c2->contact.phone = 9123456789;
     c2->next = NULL;
 
-    // Display list
+    
     struct Customer *temp = c1;
     while (temp != NULL) {
         printf("%d - %ld -> ", temp->accNo, temp->contact.phone);
@@ -37,4 +37,5 @@ int main() {
     printf("NULL");
 
     return 0;
+
 }
