@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Page {
+    int pageId;
+    struct Page *prev;
+    struct Page *next;
+};
+
+int main() {
+    struct Page *head = NULL, *temp, *newPage;
+    int n, i, del;
+
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        newPage = (struct Page*)malloc(sizeof(struct Page));
+        scanf("%d", &newPage->pageId);
+        newPage->next = NULL;
+
+        if (head == NULL) {
+            newPage->prev = NULL;
+            head = newPage;
+        } else {
+            temp = head;
+            while (temp->next != NULL)
+                temp = temp->next;
+
+            temp->next = newPage;
+            newPage->prev = temp;
+        }
+    }
+
+    scanf("%d", &del);
+
+    temp = head;
+
+    while (temp != NULL) {
+        printf("%d <> ", temp->pageId);
+        temp = temp->next;
+    }
+    printf("NULL");
+
+    return 0;
+}
