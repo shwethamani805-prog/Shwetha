@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Order {
+    int orderId;
+    struct Order *prev;
+    struct Order *next;
+};
+
+int main() {
+    struct Order *head = NULL, *temp, *newOrder;
+    int n, i, pos, id;
+
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        newOrder = (struct Order*)malloc(sizeof(struct Order));
+        scanf("%d", &newOrder->orderId);
+        newOrder->next = NULL;
+
+        if (head == NULL) {
+            newOrder->prev = NULL;
+            head = newOrder;
+        } else {
+            temp = head;
+            while (temp->next != NULL)
+                temp = temp->next;
+            temp->next = newOrder;
+            newOrder->prev = temp;
+        }
+    }
+
+    scanf("%d", &id);
+    scanf("%d", &pos);
+
+    newOrder = (struct Order*)malloc(sizeof(struct Order));
+    newOrder->orderId = id;
+
+    if (pos == 1) {
+        newOrder->prev = NULL;
+        newOrder->next = head;
+        if (head != NULL)
+            head->prev = newOrder;
+        head = newOrder;
+    }
+    else {
+        temp = head;
+        for (i = 1; i < pos - 1 && temp->next != NULL; i++)
+            temp = temp->next;
+
+        newOrder->next = temp->next;
+        newOrder->prev = temp;
+
+        if (temp->next != NULL)
+            temp->next->prev = newOrder;
+
+        temp->next = newOrder;
+    }
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d <> ", temp->orderId);
+        temp = temp->next;
+    }
+    printf("NULL");
+
+    return 0;
+}

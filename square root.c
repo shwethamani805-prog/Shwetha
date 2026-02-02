@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include<math.h>
+int main() {
+    
+    float area,result;
+    printf("Enter area:\n");
+    scanf("%f",&area);
+    result = sqrt(area);
+    printf("Square root of area = %.2f", result);
+    return 0;
+    

@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+struct Recharge {
+    long mobileNumber;
+    int rechargeAmount;
+};
+
+int main() {
+    struct Recharge record1;
+    record1.mobileNumber = 9876543210; 
+    record1.rechargeAmount = 199;      
+
+    printf("Mobile Recharge Record:\n");
+    printf("Mobile Number: %ld\n", record1.mobileNumber);
+    printf("Recharge Amount: %d\n", record1.rechargeAmount);
+
+    return 0;
+}

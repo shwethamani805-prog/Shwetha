@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int ch;
+    printf("Enter number to choose your language\n");
+    printf("if 1 for Tamil\n");
+    printf("if 2 for English\n");
+    printf("if 3 for Hindi\n");
+    printf("Enter your choice\n");
+    scanf("%d",&ch);
+    switch(ch){
+        case 1:
+        printf("You have chosen Tamil\n");
+        break;
+        case 2:
+        printf("You have chosen English\n");
+        break;
+        case 3:
+        printf("You have chosen Hindi\n");
+        break;
+        default:
+        printf("Invalid choice\n");
+    }
+
+    return 0;

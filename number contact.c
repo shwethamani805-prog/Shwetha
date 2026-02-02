@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct contact{
+    long int number;
+    struct contact*next;
+    
+};
+int main(){
+    struct contact *ct1 = (struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct2 = (struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct3 = (struct contact*)malloc(sizeof(struct contact));
+    ct1->number = 8756544567;
+    ct2->number = 5678945678;
+    ct3->number = 9876543218;
+    ct1->next = ct2;
+    ct2->next =  ct3;
+    ct3->next = NULL;
+    struct contact *head = ct1;
+    printf("Contact:\n");
+    while(head != NULL){
+        printf("%d ----->",head->number);
+        head = head->next;
+    }
+    printf("finish");
+    return 0;
+}

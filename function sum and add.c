@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+float add(float a, float b);
+float sub(float a, float b);
+float mult(float a, float b);
+float divi(float a, float b);
+
+int main() {
+    float n, s;
+
+    printf("Enter two numbers:\n");
+    scanf("%f %f", &n, &s);
+
+    printf("ADDITION: %f\n", add(n, s));
+    printf("SUBTRACTION: %f\n", sub(n, s));
+    printf("MULTIPLICATION: %f\n", mult(n, s));
+
+    if (s != 0) {
+        printf("DIVISION: %f\n", divi(n, s));
+    } else {
+        printf("Invalid: Division by zero is not allowed\n");
+    }
+
+    return 0;
+}
+
+float add(float a, float b) {
+    return a + b;
+}
+
+float sub(float a, float b) {
+    return a - b;
+}
+
+float mult(float a, float b) {
+    return a * b;
+}
+
+float divi(float a, float b) {
+    return a / b;
+}
